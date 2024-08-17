@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,17 +10,26 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Platform.isIOS) {
-      return CupertinoButton(
-        color: CupertinoColors.activeBlue,
-        onPressed: onPressed,
-        child:child,
-      );
-    } else {
+    try {
+      if (defaultTargetPlatform == TargetPlatform.iOS ||
+          defaultTargetPlatform == TargetPlatform.macOS) {
+        return CupertinoButton(
+          color: CupertinoColors.activeBlue,
+          onPressed: onPressed,
+          child: child,
+        );
+      } else {
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+          onPressed: onPressed,
+          child: child,
+        );
+      }
+    } catch (e) {
       return ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
         onPressed: onPressed,
-        child:child,
+        child: child,
       );
     }
   }

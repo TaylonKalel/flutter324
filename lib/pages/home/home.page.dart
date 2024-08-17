@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter324/components/models/responsive.modal.dart';
-import 'package:flutter324/components/responsive.dart';
+import 'package:flutter324/components/responsive.component.dart';
 import 'package:flutter324/pages/home/home.mobile.widget.dart';
 import 'package:flutter324/pages/home/home.web.widget.dart';
 import 'package:flutter324/widget/scaffold.widget.dart';
